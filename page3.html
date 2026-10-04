@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang='uk'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=no'><style>
+* { box-sizing: border-box; } body { margin:0; height:100vh; color:white; font-family:Georgia,serif; display:flex; justify-content:center; align-items:center; padding:10px; overflow:hidden; position:relative; background:radial-gradient(circle at 50% 0%, #7b1fa2 0%, transparent 45%), linear-gradient(135deg, #020003, #16001f, #020003); }
+.falling-element { position:absolute; animation:fall linear infinite; z-index:999; pointer-events:none; } @keyframes fall { 0% { transform:translateY(-20px) rotate(0deg) scale(0.8); opacity:0; } 10% { opacity:1; } 90% { opacity:1; } 100% { transform:translateY(102vh) rotate(360deg) scale(1.1); opacity:0; } }
+.book { width:100%; height:94vh; padding:15px; border-radius:15px; border:2px solid #a238ff; position:relative; z-index:10; background: linear-gradient(135deg, #1b0522, #070007); box-shadow: 0 0 20px #8a2be2; display: flex; flex-direction: column; justify-content: space-between; }
+h1 { text-align:center; color:#df9cff; font-size:28px; text-shadow:0 0 8px #a020f0; margin:5px 0; } .line { width:90%; height:1px; margin:5px auto 10px; background:#a238ff; box-shadow:0 0 10px #a238ff; } .page-content { display:flex; flex-direction:column; gap:10px; flex-grow:1; overflow-y:auto; padding-bottom:60px; }
+.left-side { padding:12px; background:rgba(50,5,65,.3); border:1px solid #68228a; border-radius:10px; text-align:center; }
+.gallery-grid { display:grid; grid-template-columns: 1fr 1fr; gap:8px; width:100%; margin-top:5px; }
+.photo-box { height:120px; overflow:hidden; border-radius:6px; border:1px solid #a238ff; box-shadow: 0 0 8px rgba(162,56,255,0.4); } .photo { width:100%; height:100%; object-fit:cover; }
+h2 { color:#ce7dff; text-shadow:0 0 8px #8a2be2; font-size:20px; margin:0 0 5px 0; } p { color:#eadcf0; font-size:14px; line-height:1.4; margin:5px 0; }
+.nav-buttons { display:flex; justify-content:space-between; position:absolute; bottom:15px; left:15px; right:15px; } .btn { background:linear-gradient(135deg, #a238ff, #7b1fa2); color:white; border:none; padding:10px 20px; font-size:14px; font-weight:bold; border-radius:6px; text-decoration:none; text-align:center; box-shadow:0 0 8px #a238ff; width:45%; }
+</style></head><body><div id='falling-container'></div><div class='book'><h1>Назар і Аліка</h1><div class='line'></div><div class='page-content'>
+<div class='left-side'><h2>🤪 Сміхатульки</h2><p>Кожна секунда з тобою — це море щирого сміху, кумедних моментів та наших власних, особливих жартів, які розуміємо тільки ми двоє.</p><p>Дякую тобі за твою шалену позитивну енергію та за те, що ти вмієш підняти настрій у будь-яку мить! 💜</p></div>
+<div class='gallery-grid'>
+<div class='photo-box'><img class='photo' src='funny1.jpg' alt='Смішна 1'></div>
+<div class='photo-box'><img class='photo' src='funny2.jpg' alt='Смішна 2'></div>
+<div class='photo-box'><img class='photo' src='funny3.jpg' alt='Смішна 3'></div>
+<div class='photo-box'><img class='photo' src='funny4.jpg' alt='Смішна 4'></div>
+</div></div>
+<div class='nav-buttons'><a href='page2.html' class='btn'>◀ Назад</a><a href='page4.html' class='btn'>Вперед ▶</a></div></div>
+<script>const symbols = ['😂','🙈','❤️','✨']; setInterval(() => { const c = document.getElementById('falling-container'); if (!c) return; const h = document.createElement('div'); h.classList.add('falling-element'); h.innerHTML = symbols[Math.floor(Math.random()*symbols.length)]; h.style.left = Math.random() * 100 + 'vw'; h.style.animationDuration = Math.random() * 2 + 3 + 's'; h.style.fontSize = '18px'; c.appendChild(h); setTimeout(() => { h.remove(); }, 5000); }, 300);</script></body></html>
